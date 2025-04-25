@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+
 import type { Lead } from "@/lib/supabase"
 import { formatDistanceToNow } from "date-fns"
 

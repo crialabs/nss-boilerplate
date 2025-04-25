@@ -1,8 +1,8 @@
-import { getSupabaseServer } from "./server"
+import { createClient } from "./server"
 import type { Lead } from "./types"
 
 export async function getLeads(limit = 100, offset = 0) {
-  const supabase = getSupabaseServer()
+  const supabase = await createClient()
   const { data, error } = await supabase
     .from("leads")
     .select("*")
@@ -133,7 +133,7 @@ export async function updateLeadStatus(id: string, status: "active" | "inactive"
 }
 
 export async function deleteLead(id: string) {
-  const supabase = getSupabaseServer()
+  const supabase = createS()
   const { error } = await supabase.from("leads").delete().eq("id", id)
 
   if (error) {
